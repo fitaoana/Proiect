@@ -1,0 +1,52 @@
+﻿@page
+@model Proiect.Pages.Appointments.IndexModel
+
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<h1>Appointments</h1>
+
+<p>
+    
+    <a asp-page="Create" class="btn btn-outline-danger">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].DateTimeOfAppointment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].Patient.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].Doctor.DoctorName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Appointment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeOfAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.DoctorName)
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-outline-danger">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-outline-dark">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-outline-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

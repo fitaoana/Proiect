@@ -1,0 +1,31 @@
+﻿@page
+@model Proiect.Pages.Doctors.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Doctor.DoctorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Doctor.DoctorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Doctor.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Doctor.Email)
+        </dd>
+    </dl>
+</div>
+<div class="btn-group" role="group">
+    <a asp-page="./Edit" asp-route-id="@Model.Doctor.ID" class="btn btn-outline-danger">Edit</a> 
+    <a asp-page="./Index" class="btn btn-outline-dark">Back to List</a>
+</div>
